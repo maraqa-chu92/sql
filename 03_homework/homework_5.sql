@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 -- String manipulations
 /* 1. Some product names in the product table have descriptions like "Jar" or "Organic". 
 These are separated from the product name with a hyphen. 
@@ -75,6 +76,8 @@ WHERE sales_rank == 142;
 
 
 
+=======
+>>>>>>> d18596d9dfb0a96dc49a6710a3b0b37340768ad5
 -- Cross Join
 /*1. Suppose every vendor in the `vendor_inventory` table had 5 of each of their products to sell to **every** 
 customer on record. How much money would each vendor make per product? 

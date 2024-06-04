@@ -15,7 +15,33 @@ _Hint, search type 1 vs type 2 slowly changing dimensions._
 
 Bonus: Are there privacy implications to this, why or why not?
 ```
-Your answer...
+For retaining changes (Type 2 Slowly Changing Dimension):
+
+**Type 2 CUSTOMER_ADDRESS Table:**
+- customer_address_id (Primary Key)
+- customer_id (Foreign Key)
+- address
+- city
+- state
+- zip_code
+- start_date
+- end_date
+
+In this architecture, when a customer's address changes, a new record is inserted into the CUSTOMER_ADDRESS table with the updated address information. The start_date column indicates when the address became effective, and the end_date column indicates when the address was superseded by a new one. This approach allows for historical tracking of customer addresses, preserving the history of changes over time.
+
+For overwriting changes (Type 1 Slowly Changing Dimension):
+
+**Type 1 CUSTOMER_ADDRESS Table:**
+- customer_address_id (Primary Key)
+- customer_id (Foreign Key)
+- address
+- city
+- state
+- zip_code
+
+In this architecture, when a customer's address changes, the existing record in the CUSTOMER_ADDRESS table is simply updated with the new address information. There is no historical tracking of changes, and the previous address information is overwritten. This approach is simpler and more efficient but does not preserve historical data.
+
+In a Type 2 architecture where changes are retained, there is a longer-term storage of historical address data. This can potentially increase the risk of data exposure if proper measures are not taken to securely store and manage this historical data.
 ```
 
 ## Question 4
@@ -23,7 +49,9 @@ Review the AdventureWorks Schema [here](https://i.stack.imgur.com/LMu4W.gif)
 
 Highlight at least two differences between it and your ERD. Would you change anything in yours?
 ```
-Your answer...
+The AdventureWorks schema is designed for a large enterprise, with various aspects such as sales, production, human resources, and purchasing. In contrast, the proposed ERD for a small bookstore is relatively simple and focused primarily on sales, inventory management, and customer relationships. The AdventureWorks schema is much larger and more complex compared to the small bookstore ERD, reflecting the different scopes of the businesses they serve.
+Regarding potential changes to the proposed ERD for the small bookstore, one consideration could be to include additional entities or attributes that capture more detailed information about customers, products, or sales. For example, incorporating a product category or genre entity could provide more insights into sales trends and customer preferences. Similarly, including attributes such as customer demographics or purchase history could enhance the bookstore's ability to personalize marketing efforts and improve customer satisfaction.
+
 ```
 
 # Criteria

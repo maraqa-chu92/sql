@@ -61,12 +61,19 @@ WHERE dense_visits ==1;
 /* 3. Using a COUNT() window function, include a value along with each row of the 
 customer_purchases table that indicates how many different times that customer has purchased that product_id. */
 
+<<<<<<< HEAD
 SELECT customer_id, product_id,
 COUNT( product_id) -- number of times the product_id was purchased
 
 FROM customer_purchases
 GROUP BY customer_id, product_id;
 
+=======
+
+
+
+-- String manipulations
+>>>>>>> d18596d9dfb0a96dc49a6710a3b0b37340768ad5
 /* 1. Some product names in the product table have descriptions like "Jar" or "Organic". 
 These are separated from the product name with a hyphen. 
 Create a column using SUBSTR (and a couple of other commands) that captures these, but is otherwise NULL. 
@@ -78,6 +85,7 @@ Remove any trailing or leading whitespaces. Don't just use a case statement for 
 
 Hint: you might need to use INSTR(product_name,'-') to find the hyphens. INSTR will help split the column. */
 
+<<<<<<< HEAD
 SELECT DISTINCT
 
 product_name,  
@@ -94,6 +102,15 @@ FROM product
 
 WHERE product_size REGEXP '[[:digit:]]' ;
 
+=======
+
+
+/* 2. Filter the query to show any product_size value that contain a number with REGEXP. */
+
+
+
+-- UNION
+>>>>>>> d18596d9dfb0a96dc49a6710a3b0b37340768ad5
 /* 1. Using a UNION, write a query that displays the market dates with the highest and lowest total sales.
 
 HINT: There are a possibly a few ways to do this query, but if you're struggling, try the following: 
@@ -102,6 +119,7 @@ HINT: There are a possibly a few ways to do this query, but if you're struggling
 "best day" and "worst day"; 
 3) Query the second temp table twice, once for the best day, once for the worst day, 
 with a UNION binding them. */
+<<<<<<< HEAD
  
  
 
@@ -142,5 +160,9 @@ SELECT *
 FROM sales_stats
 
 WHERE sales_rank == 142;
+=======
+
+
+>>>>>>> d18596d9dfb0a96dc49a6710a3b0b37340768ad5
 
 
